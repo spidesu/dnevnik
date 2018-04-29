@@ -458,7 +458,7 @@ switch($_SESSION['permission']){//отображение контента
 			case 11: //добавление новостей класса
 				$header=$_POST['header'];
 				$new=$_POST['new'];
-				if($header and $new and $date){
+				if($header and $new){
 					$header=$link->quote($header);
 					$new=$link->quote($new);
 					$date=$link->quote($date);
@@ -472,7 +472,6 @@ switch($_SESSION['permission']){//отображение контента
 				
 			
 			
-			break;
 			break;
 		}
 	break;
