@@ -469,7 +469,7 @@ switch($_SESSION['permission']){//отображение контента
 					$sql="INSERT INTO news_classes(header, new, autor, id_class) VALUES ($header, $new, $id_teacher, {$row['id']})";
 					$link->exec($sql);
 				}
-				
+				echo 1;
 			
 			
 			break;
