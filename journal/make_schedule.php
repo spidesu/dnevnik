@@ -24,40 +24,44 @@
 	}
 </script>
 <h2>Составить расписание</h2>
-<table border="1">
-	<?
-	$day=1;
-	$lesson=1;
-	while($day<=7){?>
-	<tr>
-		<td>
-			День <?=$day?>
-		</td>
-		<td>
-		<?while($lesson<=6){?>
+<div class="col-xs-12 col-sm-5">
+	<table class="table">
+		<?
+		$day=1;
+		$lesson=1;
+		while($day<=7){?>
+		<tr>
+			<td>
+				День <?=$day?>
+			</td>
+			<td>
+			<?while($lesson<=6){?>
+			
+				<select  <?="id=d".$day."_l".$lesson?>>
+					<option value='0'>Нет урока</option>
+					<?
+						$sql="SELECT id, name FROM lessons";
+						$res=$link->query($sql);
+						while($row=$res->fetch(PDO::FETCH_ASSOC)){
+							echo "<option value='{$row['id']}'>{$row['name']}</option>";
+						}
+					?>
+				</select><br>
+			
+			<?$lesson++;}?>
+			</td>
+		</tr>
+		<?
+		$lesson=1;
+		$day++;
+		}
+		?>
 		
-			<select  <?="id=d".$day."_l".$lesson?>>
-				<option value='0'>Нет урока</option>
-				<?
-					$sql="SELECT id, name FROM lessons";
-					$res=$link->query($sql);
-					while($row=$res->fetch(PDO::FETCH_ASSOC)){
-						echo "<option value='{$row['id']}'>{$row['name']}</option>";
-					}
-				?>
-			</select><br>
-		
-		<?$lesson++;}?>
-		</td>
-	</tr>
-	<?
-	$lesson=1;
-	$day++;
-	}
-	?>
-	
-</table>
+	</table>
+</div><br>
 <form id="form" method="POST">
 <input hidden name="schedule_json" id="schedule_json">
 </form>
-<button onclick="json_code()">Готово</button>
+<div class="col-xs-12">
+<button onclick="json_code()" class="btn btn-primary">Готово</button>
+</div>
