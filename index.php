@@ -459,7 +459,11 @@ switch($_SESSION['permission']){//отображение контента
 				$header=$_POST['header'];
 				$new=$_POST['new'];
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if($header and $new){
+=======
+				if($header and $new and $date){
+>>>>>>> master
 =======
 				if($header and $new and $date){
 >>>>>>> master
@@ -478,6 +482,10 @@ switch($_SESSION['permission']){//отображение контента
 			
 			break;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+			break;
+>>>>>>> master
 =======
 			break;
 >>>>>>> master
