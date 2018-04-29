@@ -23,7 +23,8 @@
 	}
 </script>
 <h2>Изменить расписание</h2>
-<table border="1">
+<div class="col-xs-12 col-sm-5">
+<table class="table">
 	<?
 	$day=1;
 	$lesson=1;
@@ -68,7 +69,10 @@
 	?>
 	
 </table>
+</div>
 <form id="form" method="POST">
 <input hidden name="schedule_json" id="schedule_json">
 </form>
-<button onclick="json_code()">Готово</button>
+<div class="col-xs-12">
+<button onclick="json_code()" class="btn btn-primary">Готово</button>
+</div>
