@@ -1,4 +1,5 @@
 <?
+//testing
 include('config.php');
 $form=$_GET['form'];
 $module=$_GET['module'];
