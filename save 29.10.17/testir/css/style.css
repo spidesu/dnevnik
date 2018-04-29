@@ -1,0 +1,155 @@
+body{
+	background: url('../images/background.jpg');
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+a{
+	color: white;
+}
+b{
+	font-size: 23px;
+}
+.testimony{
+	margin-bottom: 20px;
+	float: left;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+}
+.testimony_enter{
+	float: left;
+	color: white;
+	font-size: 16px;
+}
+#conteiner{
+	width: 850px;
+	margin: auto;
+}
+#header{
+	width: 800px;
+	height: 155px;
+	border: 0px solid black;
+	border-radius: 27px;
+	margin: auto;
+	background: rgba(0,0,0,0.1);
+	color: white;
+	font-weight: bold;
+}
+#logo{
+	height: 80px;
+	width: 100%;
+	margin: 5px;
+	border: 0px solid black;
+}
+#h_site{
+	width: 500px;
+	height: 70px;
+	border: 0px solid black;
+	margin: 9px;
+}
+#small_h_site{
+	width: 500px;
+	height: 19px;
+	border: 0px solid black;
+	font-size: 21px;
+}
+#big_h_site{
+	width: 500px;
+	height: 48px;
+	border: 0px solid black;
+	font-size: 44px;
+}
+#menu{
+	height: 40px;
+	width: 100%;
+	border: 0px solid black;
+}
+.el_menu{
+	width: 178px;
+	height: 35px;
+	margin: 2px 0px 0px 2%;
+	border: 0px solid black;
+	float:left;
+	background: rgba(0,0,0,0.2);
+	border-radius: 10px;
+}
+.name_el_menu{
+	margin: 5px;
+	font-size: 21px;
+	border: 0px solid black;
+	text-align: center;
+}
+#sidebar{
+	width: 226px;
+	min-height: 250px;
+	border: 0px solid black;
+	float: left;
+	margin-top: 10px;
+	margin-left: 25px;
+	margin-bottom: 20px;
+	border-radius: 27px;
+	background: rgba(0,0,0,0.2);
+	color: white;
+}
+#login{
+	width: 190px;
+	min-height: 200px;
+	margin-left: 3px;
+	margin-top: 20px;
+	border: 0px solid black;
+	margin: 20px auto 20px 18px;
+	float: left;
+}
+.input_text{
+	width: 190px;
+	height: 30px;
+	font-size: 20px;
+}
+.input_submit{
+	width: 190px;
+	height: 30px;
+	margin-top: 10px;
+	font-size: 20px;
+}
+#content{
+	width: 563px;
+	min-height: 300px;
+	border: 0px solid black;
+	border-radius: 27px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	background: rgba(0,0,0,0.1);
+	color: white;
+}
+#header_content{
+	width: 523px;
+	height: 30px;
+	padding: 9px 0 9px 40px;
+	border: 0px solid black;
+	border-radius: 27px 27px 0 0;
+	font-size: 23px;
+	background: rgba(0,0,0,0.2);
+}
+#text_content{
+	width: 90%;
+	height: 100px;
+	border: 0px solid black;
+	margin: 20px auto auto auto;
+	font-size: 20px;
+}
+.el_sidebar{
+	width: 178px;
+	height: 35px;
+	margin: 10px auto 10px auto;
+	border: 0px solid black;
+	background: rgba(0,0,0,0.2);
+	border-radius: 10px;
+}
+.name_el_sidebar{
+	margin: 4px 0 0 10px;
+	font-size: 21px;
+	border: 0px solid black;
+	text-align: center;
+	float: left;
+}
