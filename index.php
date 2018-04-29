@@ -468,6 +468,8 @@ switch($_SESSION['permission']){//отображение контента
 					$row=$res->fetch(PDO::FETCH_ASSOC);
 					$sql="INSERT INTO news_classes(header, new, autor, id_class) VALUES ($header, $new, $id_teacher, {$row['id']})";
 					$link->exec($sql);
+					$_SESSION['msg']="<font color='green'>Новость успешно добавлена!</font>";
+					$_SESSION['msg_status']="success";
 				}
 			
 			
