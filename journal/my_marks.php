@@ -1,3 +1,10 @@
+<head>
+	<style type="text/css">
+	span.disabled {
+		cursor: default;
+	}
+	</style>
+</head>
 <table class="table">
 	<tr>
 		<th>Предмет</th>
@@ -22,7 +29,7 @@ while($lesson_row=$lessons->fetch(PDO::FETCH_ASSOC)){
 		<td>{$lesson_row['name']}</td><td>";
 				while($row=$res->fetch(PDO::FETCH_ASSOC)){
 				echo "
-			<span href='#' title='Тема: {$row['description']}, Преподаватель: {$row['name_teacher']}'>{$row['mark']}</span>";}
+			<span href='#' class='disabled' title='Тема: {$row['description']}, Преподаватель: {$row['name_teacher']}'>{$row['mark']}</span>";}
 			echo "
 		</td>
 	</tr>";
