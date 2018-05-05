@@ -10,7 +10,7 @@ class Teacher{
 				$name_student=$link->quote($student[0]['name']);
 				$login_student=$link->quote($student[0]['login']);
 				$password_student=$link->quote($student[0]['password']);
-				if($userClass->checkLogin($login_student)){
+				if($userClass->checkLogin($login_student)){ 
 					$_SESSION['msg']="<font color='red'>Ошибка! Один из логинов уже зарегистрирован!</font>";
 				}
 				else{
@@ -48,6 +48,11 @@ class Teacher{
 		}
 		$str_sql=substr($str_sql,0,-1);
 		$sql="INSERT INTO marks(id_student, id_teacher, id_lesson, mark, description, date) VALUES $str_sql";
+		$link->exec($sql);
+	}
+	function delMark($id_mark){
+		Global $link;
+		$sql="DELETE FROM marks WHERE id=$id_mark";
 		$link->exec($sql);
 	}
 

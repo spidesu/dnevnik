@@ -19,7 +19,7 @@ class ClassRoom{
 
 	function delNew($delNew){//удаление новости
 
-		Global $link;
+		Global $link; 
 
 		$delNew=$link->quote($delNew);
 		$sql="SELECT id FROM classes WHERE id_teacher={$_SESSION['id_teacher']}";

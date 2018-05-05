@@ -8,10 +8,10 @@ class user{
 			$res=$link->query($sql);
 			$row=$res->fetch(PDO::FETCH_ASSOC);
 			if($row['id']){
-				return true;
+				return false;
 			}
 			else{
-				return false;
+				return true; 
 			}
 		}
 		else{

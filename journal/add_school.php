@@ -10,3 +10,25 @@
 		<input type="submit" class="btn btn-primary">
 	</form>
 </div>
+<div class="col-xs-6">
+	<h2>Список учителей</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ФИО</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?
+				$sql="SELECT name_school FROM schools";
+				$res=$link->query($sql);
+				while($row=$res->fetch(PDO::FETCH_ASSOC)){
+					echo "
+					<tr>
+						<td>{$row['name_school']}</td>
+					</tr>";
+				}
+			?>
+		</tbody>
+	</table>
+</div>

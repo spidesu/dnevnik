@@ -102,5 +102,17 @@ switch($form){
 	
 	
 	break;
+	case 14: //удаление оценок
+		$id_del=$_GET['id_del'];
+		$id_class_orig=$_GET['id_class'];
+		$id_lesson_orig=$_GET['id_lesson'];
+		if($id_del){
+			$teacherClass->delMark($id_del);
+			header("location:?module=1&form=14&id_lesson=$id_lesson_orig&id_class=$id_class_orig");
+			exit;
+		}
+	
+	
+	break;
 }
 ?>

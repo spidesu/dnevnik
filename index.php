@@ -58,6 +58,7 @@ switch($_SESSION['permission']){//отображение контента
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
