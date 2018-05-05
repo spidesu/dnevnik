@@ -5,11 +5,41 @@ $classes=$link->query("SELECT * FROM classes WHERE id_school={$school}");
 $users_students=$link->query("SELECT * FROM users_students WHERE id_school={$school}");
 $users_teachers=$link->query("SELECT * FROM users_teachers WHERE id_school={$school}");
 $schedule=$link->query("SELECT * FROM schedule s JOIN classes c ON s.id_class=c.id WHERE c.id_school={$school}");
-$marks=$link->query("SELECT * FROM marks m JOIN users_students us ON m.id_student=us.id WHERE us.id_school={$school}");
+$marks=$link->query("SELECT m.id, m.id_student, m.id_teacher, m.id_lesson, m.description, m.date, m.mark FROM marks m JOIN users_students us ON m.id_student=us.id WHERE us.id_school={$school}");
 $news_classes=$link->query("SELECT * FROM news_classes m JOIN classes us ON m.id_class=us.id WHERE us.id_school={$school}");
 $lesson_teacher_class=$link->query("SELECT * FROM lesson_teacher_class ltc JOIN classes us ON ltc.id_class=us.id WHERE us.id_school={$school}");
-
+$users=$link->query("SELECT * FROM users  WHERE permission>=2");
 $records_arr=array();
+$records_arr["users"]=array();
+while($row = $users->fetch(PDO::FETCH_ASSOC)) {
+switch($row['permission']){
+					case 2:
+					$sql="SELECT * FROM users u JOIN users_school_admins usa WHERE id_school=$school AND u.permission=2";
+						$res=$link->query($sql);
+						$row2=$res->fetch(PDO::FETCH_ASSOC);
+						break;
+					case 3:
+					$sql="SELECT * FROM users u JOIN users_teachers usa WHERE id_school=$school AND u.permission=3";
+						$res=$link->query($sql);
+						$row2=$res->fetch(PDO::FETCH_ASSOC);
+						break;
+					case 4:
+					$sql="SELECT * FROM users u JOIN users_students usa WHERE id_school=$school AND u.permission=4";
+						$res=$link->query($sql);
+						$row2=$res->fetch(PDO::FETCH_ASSOC);
+						break;
+					}
+		$user_item=array(
+			"id" => $row2['id'],
+            "login" => $row2['login'],
+            "password" => $row2['password'],
+            "id_user" => $row2['id_user'],
+        	"permission" => $row2['permission']);
+
+	array_push($records_arr["users"], $user_item);				
+}
+
+//$records_arr=array();
 $records_arr["classes"]=array();
 $records_arr["users_students"]=array();
 $records_arr["users_teachers"]=array();
