@@ -25,6 +25,8 @@
 		case 12: include('journal/passed_test.php'); break;
 		case 13: include('journal/select_test.php'); break;
 		case 14: include('journal/marks_teacher.php'); break;
+		case 15: include('journal/my_circles.php'); break;
+		case 16: include('journal/add_circles.php'); break;
 	}
 	?>
 	</p>

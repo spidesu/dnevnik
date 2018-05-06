@@ -4,6 +4,7 @@
 <li <?if($form==2){echo "class=\"active\"";}?>><a href="?module=1&form=2">Мой класс</a></li>
 <li <?if($form==3){echo "class=\"active\"";}?>><a href="?module=1&form=3">Мои оценки</a></li>
 <li <?if($form==4){echo "class=\"active\"";}?>><a href="?module=1&form=4">Тестирование</a></li>
+<li <?if($form==6){echo "class=\"active\"";}?>><a href="?module=1&form=6">Кружки</a></li>
 </ul>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="home">
@@ -15,6 +16,7 @@ switch($form){
 	case 3: include('journal/my_marks.php'); break;
 	case 4: include('journal/select_test.php'); break;
 	case 5: include('journal/passing_test.php'); break;
+	case 6: include('journal/my_circles.php'); break;
 }
 ?>
 	</p>

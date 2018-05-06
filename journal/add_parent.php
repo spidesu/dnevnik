@@ -1,12 +1,14 @@
 <?=$_SESSION['msg']; $_SESSION['msg']="";?>
 <h2>Добавить родителя</h2>
-<form method="POST">
-	ФИО: <br><input type="text" name="name_parent"><br>
-	Место работы: <br><input type="text" name="job_parent"><br>
-	Адрес: <br><input type="text" name="adress_parent"><br>
-	Дата рождения: <br><input type="date" name="date_parent"><br>
-	E_mail: <br><input type="text" name="email_parent"><br>
-	Номер телефона: <br><input type="text" name="phone_parent"><br>
+<hr>
+<form method="POST" style="width: 30vw;">
+	ФИО: <br><input type="text" name="name_parent" class="form-control"><br>
+	Место работы: <br><input type="text" name="job_parent" class="form-control"><br>
+	Адрес: <br><input type="text" name="adress_parent" class="form-control"><br>
+	Дата рождения: <br><input type="date" name="date_parent" class="form-control"><br>
+	E_mail: <br><input type="text" name="email_parent" class="form-control"><br>
+	Номер телефона: <br><input type="text" name="phone_parent" class="form-control"><br>
+	<!--
 	Дети: <br>
 	<select name="children_parent">
 		<?
@@ -17,8 +19,10 @@
 		}
 		?>
 	</select><br>
-	Логин: <br><input type="text" name="login_parent"><br>
-	Пароль: <br><input type="text" name="password_parent"><br>
+	-->
+	Логин: <br><input type="text" name="login_parent" class="form-control"><br>
+	Пароль: <br><input type="text" name="password_parent" class="form-control"><br>
 	<br>
-	<input type="submit">
+	<hr>
+	<input type="submit" class="btn btn-primary">
 </form>

@@ -205,6 +205,7 @@ if($_SESSION['permission']==3){
 	while($row=$res->fetch(PDO::FETCH_ASSOC)){?>
 		<div class="well col-xs-12" title="<?=$row['name'];?>">
 				<b><?=$row['name'];?></b>
+				<?if($_SESSION['permission']==3){?><b style="float: right;"><a href ="?module=1&form=5&id_student=<?=$row['id'];?>" style="float: right;">Добавить родителя</a><br><a href ="?module=1&form=15&id_student=<?=$row['id'];?>" style="float: right;">Посмотреть кружки</a></b><?}?>
 		</div>
 	<?}?>
 </div>

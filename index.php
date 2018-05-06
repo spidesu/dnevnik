@@ -47,6 +47,9 @@ if($_GET['module']==1){
 		case 3: //пользователь классный руководитель учитель
 			require_once("permissions/Teacher.php");
 		break;
+		case 5: //пользователь родитель
+			require_once("permissions/Parent.php");
+		break;
 	}
 }
 elseif($_GET['module']==2){
