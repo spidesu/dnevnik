@@ -14,17 +14,17 @@ $records_arr["users"]=array();
 while($row = $users->fetch(PDO::FETCH_ASSOC)) {
 switch($row['permission']){
 					case 2:
-					$sql="SELECT * FROM users u JOIN users_school_admins usa WHERE id_school=$school AND u.permission=2";
+					$sql="SELECT u.id, u.login, u.password, u.id_user, u.permission FROM users u JOIN users_school_admins usa WHERE id_school=$school AND u.permission=2";
 						$res=$link->query($sql);
 						$row2=$res->fetch(PDO::FETCH_ASSOC);
 						break;
 					case 3:
-					$sql="SELECT * FROM users u JOIN users_teachers usa WHERE id_school=$school AND u.permission=3";
+					$sql="SELECT u.id, u.login, u.password, u.id_user, u.permission FROM users u JOIN users_teachers usa WHERE id_school=$school AND u.permission=3";
 						$res=$link->query($sql);
 						$row2=$res->fetch(PDO::FETCH_ASSOC);
 						break;
 					case 4:
-					$sql="SELECT * FROM users u JOIN users_students usa WHERE id_school=$school AND u.permission=4";
+					$sql="SELECT u.id, u.login, u.password, u.id_user, u.permission FROM users u JOIN users_students usa WHERE id_school=$school AND u.permission=4";
 						$res=$link->query($sql);
 						$row2=$res->fetch(PDO::FETCH_ASSOC);
 						break;
@@ -136,3 +136,4 @@ while($row = $lesson_teacher_class->fetch(PDO::FETCH_ASSOC)) {
 echo json_encode($records_arr, JSON_UNESCAPED_UNICODE);
 
 
+?>
