@@ -34,6 +34,47 @@ switch($form){
 			$classRoomClass->addStudents($json_student);
 		}
 	break;
+	case 5: //добавление родителей
+	
+		$name_parent=$_POST['name_parent'];
+		$id_student=$_GET['id_student'];
+		$job_parent=$_POST['job_parent'];
+		$adress_parent=$_POST['adress_parent'];
+		$date_parent=$_POST['date_parent'];
+		$email_parent=$_POST['email_parent'];
+		$phone_parent=$_POST['phone_parent'];
+		$login_parent=$_POST['login_parent'];
+		$password_parent=$_POST['password_parent'];
+		$children_parent=$_POST['children_parent'];
+		$children_parent=$_POST['children_parent'];
+		if($name_parent and $job_parent and $adress_parent and $date_parent and $email_parent and $phone_parent and $login_parent and $password_parent){
+			$name_parent=$link->quote($name_parent);
+			$job_parent=$link->quote($job_parent);
+			$adress_parent=$link->quote($adress_parent);
+			$date_parent=$link->quote($date_parent);
+			$email_parent=$link->quote($email_parent);
+			$phone_parent=$link->quote($phone_parent);
+			$login_parent=$link->quote($login_parent);
+			$password_parent=$link->quote($password_parent);
+			$children_parent=$link->quote($children_parent);
+			$id_school=$link->quote($_SESSION['id_school']);
+			$sql="INSERT INTO users_parents(email, name, phone, id_school, id_student) VALUES ($email_parent, $name_parent, $phone_parent, $id_school, $id_student)";
+			$link->exec($sql);
+			$id_parent=$link->lastInsertId('users_parents');
+			$id_parent=$link->quote($id_parent);
+			$sql="
+			
+			INSERT INTO users(login, password, id_user, permission) VALUES ($login_parent, $password_parent, $id_parent, 5);
+			UPDATE users_students SET id_parent=$id_parent WHERE id=$children_parent
+			
+			";
+			$link->exec($sql);
+			$_SESSION['msg']="<font color='green'>Родитель успешно добавлен!</font>";
+			header('location: ?module=1&form=2');
+			exit;
+		}
+	
+	break;
 	/*case 7: //не дописано (тесты)
 		$count_questions=$_POST['count_questions_send'];
 		if($count_questions){
