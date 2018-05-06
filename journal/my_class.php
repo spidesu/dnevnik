@@ -170,7 +170,7 @@ if($_SESSION['permission']==3){
 		}
 		else{
 			echo "<table class=\"table\">";
-			echo "<tr><th>ФИО</th><th>Придмет</th>";
+			echo "<tr><th>ФИО</th><th>Предмет</th>";
 			if($_SESSION['permission']==3){
 				echo "<th>Действие</th>";
 			
