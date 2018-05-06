@@ -54,6 +54,7 @@ class user{
 			$sql="SELECT permission, id_user, login, password FROM users WHERE login=$login and password=$password";
 			$res=$link->query($sql);
 			$row=$res->fetch(PDO::FETCH_ASSOC);
+			$permission=$row['permission'];
 			if($row['permission']){
 				$_SESSION['permission']=$row['permission'];
 				$_SESSION['login']=$row['login'];
@@ -99,6 +100,14 @@ class user{
 						if($row['id_parent']>0){
 							$_SESSION['id_parent']=$row['id_parent'];
 						}
+					
+					break;
+					case 6: 
+					
+						$sql="SELECT id, name, phone, id_school FROM users_cooks WHERE id=$id_user";
+						$res=$link->query($sql);
+						$row=$res->fetch(PDO::FETCH_ASSOC);
+						$_SESSION['id_school']=$row['id_school'];
 					
 					break;
 				}

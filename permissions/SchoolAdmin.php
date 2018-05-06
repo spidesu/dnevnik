@@ -30,7 +30,18 @@ switch($form){
 		}
 	break;
 	case 4:
-		
+		$name_cook=$_POST['name_cook'];
+		$phone_cook=$_POST['phone_cook'];
+		$login_cook_text=$_POST['login_cook'];
+		$password_cook_text=$_POST['password_cook'];
+		$repassword_cook=$_POST['repassword_cook'];
+		if($name_cook && $phone_cook && $login_cook_text && $password_cook_text && $password_cook_text==$repassword_cook){
+
+			$schoolAdminClass->add_cook($name_cook, $phone_cook, $login_cook_text, $password_cook_text);
+
+			header('location: ?module=1&form=4');
+			exit;
+		}
 	break;
 	/*case 5: //добавление родителей (по-моему не работают)
 	

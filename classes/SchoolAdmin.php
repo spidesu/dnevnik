@@ -52,5 +52,29 @@ class SchoolAdmin{
 			return false;
 		}
 	}
+	
+	function add_cook($name_cook, $phone_cook, $login_cook_text, $password_cook_text){//добавление учителя
+		
+		Global $link;
+		Global $userClass;
+		$name_cook=$link->quote($name_cook);
+		$phone_cook=$link->quote($phone_cook);
+		$login_cook=$link->quote($login_cook_text);
+		$password_cook=$link->quote($password_cook_text);
+		$id_school=$link->quote($_SESSION['id_school']);
+		if($userClass->checkLogin($login_cook)==true){
+			$sql="INSERT INTO users_cooks(name, phone, id_school) VALUES ($name_cook,$phone_cook,$id_school)";
+			$link->exec($sql);
+			$id_cook=$link->lastInsertId(users_cooks);
+			$id_cook=$link->quote($id_cook);
+			$sql="INSERT INTO users(login, password, id_user, permission) VALUES ($login_cook, $password_cook, $id_cook, 6);";
+			$link->exec($sql);
+			$_SESSION['msg']="<font color='green'>Повар успешно добавлен!<br>Данные для входа:<br>Логин: $login_cook<br>Пароль: $password_cook</font>";
+		}
+		else{
+			$_SESSION['msg']="<font color='red'>Ошибка! Логин уже зарегистрирован!</font>";
+			return false;
+		}
+	}
 }
 ?>

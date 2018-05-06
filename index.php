@@ -22,6 +22,8 @@ require_once("classes/SchoolAdmin.php");
 
 require_once("classes/Teacher.php");
 
+require_once("classes/Student.php");
+
 require_once("classes/ClassRoom.php");
 
 $userClass = new User();
@@ -34,17 +36,31 @@ $schoolAdminClass = new SchoolAdmin();
 $teacherClass = new Teacher();
 
 $classRoomClass = new ClassRoom();
-
-switch($_SESSION['permission']){//отображение контента
-	case 1: //пользователь глобальный администратор
-		require_once("permissions/GlobalAdmin.php");
-	break;
-	case 2: //пользователь администратор школы
-		require_once("permissions/SchoolAdmin.php");
-	break;
-	case 3: //пользователь классный руководитель учитель
-		require_once("permissions/Teacher.php");
-	break;
+if($_GET['module']==1){
+	switch($_SESSION['permission']){//отображение контента
+		case 1: //пользователь глобальный администратор
+			require_once("permissions/GlobalAdmin.php");
+		break;
+		case 2: //пользователь администратор школы
+			require_once("permissions/SchoolAdmin.php");
+		break;
+		case 3: //пользователь классный руководитель учитель
+			require_once("permissions/Teacher.php");
+		break;
+	}
+}
+elseif($_GET['module']==2){
+	switch($_SESSION['permission']){//отображение контента
+		case 4: //пользователь ученик
+			require_once("permissions/Student.php");
+		break;
+		case 5: //пользователь родитель
+			require_once("permissions/Parent.php");
+		break;
+		case 6: //пользователь повар
+			require_once("permissions/Cook.php");
+		break;
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -86,6 +102,7 @@ switch($_SESSION['permission']){//отображение контента
 						<ul class="nav navbar-nav">
 							<li<?if(!$module){echo " class=\"active\"";}?>><a href="?module=0">Главная <span class="sr-only">(current)</span></a></li>
 							<li<?if($module==1){echo " class=\"active\"";}?>><a href="?module=1">Журнал</a></li>
+							<li<?if($module==2){echo " class=\"active\"";}?>><a href="?module=2">Столовая</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 						<?if($_SESSION['permission']){?>
